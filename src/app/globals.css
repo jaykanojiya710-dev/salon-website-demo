@@ -1,0 +1,387 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-manrope);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-band: var(--band);
+  --color-band-foreground: var(--band-foreground);
+  --color-band-muted: var(--band-muted);
+  --color-brass: var(--brass);
+  --color-brass-text: var(--brass-text);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+/* [Salon name] warm editorial tokens. Spacing, type scale and radii follow the
+   skill system: radii 4/6/8/12/16/24, flat surfaces, one accent family. */
+:root {
+  --radius: 0.5rem;
+  --background: #faf6ef;
+  --foreground: #1b1915;
+  --card: #fffdf8;
+  --card-foreground: #1b1915;
+  --popover: #fffdf8;
+  --popover-foreground: #1b1915;
+  --primary: #2e4c3e;
+  --primary-foreground: #f7f3ea;
+  --primary-deep: #243d31;
+  --secondary: #efe8d9;
+  --secondary-foreground: #2e4c3e;
+  --muted: #f1ebdf;
+  --muted-foreground: #6b6357;
+  --accent: #efe8d9;
+  --accent-foreground: #2e4c3e;
+  --destructive: #8c3a2b;
+  --destructive-foreground: #f7f3ea;
+  --border: #e6dfd0;
+  --input: #e6dfd0;
+  --ring: #2e4c3e;
+  --chart-1: #2e4c3e;
+  --chart-2: #a9822f;
+  --chart-3: #7d9b7a;
+  --chart-4: #8c3a2b;
+  --chart-5: #d9c9a3;
+  --sidebar: #faf6ef;
+  --sidebar-foreground: #1b1915;
+  --sidebar-primary: #2e4c3e;
+  --sidebar-primary-foreground: #f7f3ea;
+  --sidebar-accent: #efe8d9;
+  --sidebar-accent-foreground: #2e4c3e;
+  --sidebar-border: #e6dfd0;
+  --sidebar-ring: #2e4c3e;
+  --band: #131209;
+  --band-foreground: #f2ede2;
+  --band-muted: #b7af9f;
+  --brass: #a9822f;
+  --brass-soft: #e9ddc2;
+  --brass-text: #7a5e1e;
+  --ease-base: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  font-feature-settings: "ss01";
+}
+
+::selection {
+  background: var(--brass-soft);
+  color: var(--foreground);
+}
+
+/* ---------- Named text styles (skill B1, Tailwind scale, no italics) ---------- */
+
+.heading-1 { font-size: 60px; line-height: 60px; font-weight: 600; letter-spacing: 0; text-wrap: balance; }
+.heading-2 { font-size: 48px; line-height: 1; font-weight: 600; letter-spacing: 0; text-wrap: balance; }
+.heading-3 { font-size: 36px; line-height: 40px; font-weight: 600; letter-spacing: 0; text-wrap: balance; }
+.heading-4 { font-size: 30px; line-height: 36px; font-weight: 600; letter-spacing: 0; text-wrap: balance; }
+.heading-5 { font-size: 24px; line-height: 32px; font-weight: 600; letter-spacing: 0; text-wrap: balance; }
+.heading-6 { font-size: 20px; line-height: 28px; font-weight: 600; letter-spacing: 0; text-wrap: balance; }
+
+.title-1 { font-size: 20px; line-height: 28px; font-weight: 500; }
+.title-2 { font-size: 18px; line-height: 28px; font-weight: 500; text-wrap: balance; }
+.title-3 { font-size: 16px; line-height: 24px; font-weight: 500; }
+.title-4 { font-size: 14px; line-height: 20px; font-weight: 500; }
+.title-5 { font-size: 12px; line-height: 16px; font-weight: 500; }
+
+.body-1 { font-size: 16px; line-height: 24px; font-weight: 600; text-wrap: pretty; }
+.body-2 { font-size: 16px; line-height: 24px; font-weight: 500; text-wrap: pretty; }
+.body-3 { font-size: 16px; line-height: 24px; font-weight: 400; text-wrap: pretty; }
+.body-4 { font-size: 14px; line-height: 20px; font-weight: 600; text-wrap: pretty; }
+.body-5 { font-size: 14px; line-height: 20px; font-weight: 500; text-wrap: pretty; }
+.body-6 { font-size: 14px; line-height: 20px; font-weight: 400; text-wrap: pretty; }
+
+.button-lg { font-size: 18px; line-height: 28px; font-weight: 600; }
+.button-md { font-size: 16px; line-height: 24px; font-weight: 600; }
+.button-sm { font-size: 14px; line-height: 20px; font-weight: 600; }
+.button-xsm { font-size: 12px; line-height: 16px; font-weight: 600; }
+
+.caption-1 { font-size: 14px; line-height: 20px; font-weight: 500; }
+.caption-2 { font-size: 14px; line-height: 20px; font-weight: 400; }
+.caption-3 { font-size: 12px; line-height: 16px; font-weight: 600; }
+.caption-4 { font-size: 12px; line-height: 16px; font-weight: 500; }
+.caption-5 { font-size: 12px; line-height: 16px; font-weight: 400; }
+
+@media (max-width: 640px) {
+  .heading-1 { font-size: 36px; line-height: 40px; }
+  .heading-2 { font-size: 30px; line-height: 36px; }
+  .heading-3 { font-size: 30px; line-height: 36px; }
+}
+
+/* ---------- Buttons: 8px vertical / 12px horizontal padding, full states ---------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background-color 300ms var(--ease-base),
+    color 300ms var(--ease-base),
+    border-color 300ms var(--ease-base),
+    box-shadow 300ms var(--ease-base),
+    transform 500ms var(--ease-base);
+}
+/* Hover lift on the base curve; press feedback scales down (B7, B9) */
+.btn:hover { transform: translateY(-1px); }
+.btn:active { transform: scale(0.98); }
+.btn:disabled,
+.btn[aria-disabled="true"] { opacity: 0.45; cursor: not-allowed; pointer-events: none; }
+
+.btn-primary { background: var(--primary); color: var(--primary-foreground); }
+.btn-primary:hover { background: var(--primary-deep); }
+
+.btn-secondary {
+  background: transparent;
+  color: var(--primary);
+  border: 1px solid var(--primary);
+}
+.btn-secondary:hover { background: color-mix(in srgb, var(--primary) 8%, transparent); }
+
+.btn-ghost { background: transparent; color: var(--foreground); }
+.btn-ghost:hover { background: color-mix(in srgb, var(--foreground) 6%, transparent); }
+
+.btn-on-band { background: var(--band-foreground); color: var(--band); }
+.btn-on-band:hover { background: #ffffff; }
+
+.btn-ghost-band { background: transparent; color: var(--band-foreground); border: 1px solid color-mix(in srgb, var(--band-foreground) 40%, transparent); }
+.btn-ghost-band:hover { border-color: var(--band-foreground); }
+
+.btn-sm-size { font-size: 14px; line-height: 20px; padding: 8px 12px; }
+.btn-lg-size { font-size: 18px; line-height: 28px; padding: 8px 16px; }
+
+/* ---------- Motion: base curve, scroll reveals, tagline words, menu, nav ----------
+
+   Rules (skill B7, B11): base curve cubic-bezier(0.22, 1, 0.36, 1) with 500ms
+   for layout and position changes, 300ms for color and opacity shifts, never
+   shorter than 200ms. Only transform and opacity are animated. Scroll reveals
+   rise 32px and fade over 700ms, triggered once by IntersectionObserver.
+   prefers-reduced-motion replaces every movement with a plain opacity change. */
+
+.reveal {
+  transform: translateY(32px);
+  opacity: 0;
+  transition: transform 700ms var(--ease-base), opacity 700ms var(--ease-base);
+  will-change: transform, opacity;
+}
+.reveal-on { transform: translateY(0); opacity: 1; }
+
+/* Tagline words rest at 30% of the base text color, then activate one at a
+   time on the base curve as they cross the trigger line (B11) */
+.tagline-word {
+  color: color-mix(in srgb, var(--foreground) 30%, transparent);
+  transition: color 500ms var(--ease-base);
+}
+.tagline-word-on { color: var(--foreground); }
+
+/* Mobile menu: an always mounted full height panel. The panel fades and eases
+   down on the base curve; its links rise 24px and fade in one after another,
+   staggered 60ms apart with the total sequence capped at 400ms. */
+.menu-panel {
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-16px);
+  transition:
+    opacity 300ms var(--ease-base),
+    transform 500ms var(--ease-base),
+    visibility 0s linear 500ms;
+}
+.menu-panel-open {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 300ms var(--ease-base),
+    transform 500ms var(--ease-base),
+    visibility 0s;
+}
+.menu-item {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: transform 500ms var(--ease-base), opacity 500ms var(--ease-base);
+}
+.menu-panel-open .menu-item {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Burger lines morph between open and close states on the base curve */
+.burger-line {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 20px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--foreground);
+  transition: transform 500ms var(--ease-base);
+}
+.burger-line-a { transform: translate(-50%, calc(-50% - 4px)); }
+.burger-line-b { transform: translate(-50%, calc(-50% + 4px)); }
+.burger-open .burger-line-a { transform: translate(-50%, -50%) rotate(45deg); }
+.burger-open .burger-line-b { transform: translate(-50%, -50%) rotate(-45deg); }
+
+/* Page enter (replays on route change because main is keyed) and nav pill
+   drop in on first paint. Both are transform and opacity only. */
+@keyframes page-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+main { animation: page-in 500ms var(--ease-base) both; }
+
+@keyframes nav-in {
+  from { opacity: 0; transform: translateY(-12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.nav-pill { animation: nav-in 500ms var(--ease-base) both; }
+
+/* Entrances for composed panels and inline feedback messages */
+@keyframes rise-in {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.rise-in { animation: rise-in 500ms var(--ease-base) both; }
+
+@keyframes fade-in-soft {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.fade-in { animation: fade-in-soft 300ms var(--ease-base) both; }
+
+/* Accordion content reveals with opacity only, never height (B7) */
+@keyframes accordion-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+[data-slot="accordion-content"] { animation: accordion-fade 300ms var(--ease-base); }
+
+/* Hero heading gradient. The only gradient allowed, on text only. */
+.hero-gradient {
+  background: linear-gradient(90deg, #000000, #666666);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Current nav page indicator grows in on the base curve; links lift subtly
+   on hover and compress on press (B7, B9) */
+.nav-link {
+  position: relative;
+  transition: transform 500ms var(--ease-base), color 300ms var(--ease-base);
+}
+.nav-link:hover { transform: translateY(-1px); }
+.nav-link:active { transform: scale(0.98); }
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -6px;
+  width: 16px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--brass);
+  opacity: 0;
+  transform: translateX(-50%) scaleX(0);
+  transition: transform 500ms var(--ease-base), opacity 300ms var(--ease-base);
+}
+.nav-link[aria-current="page"]::after {
+  opacity: 1;
+  transform: translateX(-50%) scaleX(1);
+}
+
+/* Shared hover lift for standalone links (nav, footer, contact rows) */
+.lift-link {
+  transition: transform 500ms var(--ease-base), color 300ms var(--ease-base);
+}
+.lift-link:hover { transform: translateY(-1px); }
+.lift-link:active { transform: scale(0.98); }
+
+/* Visible focus ring everywhere (accessibility requirement) */
+:where(a, button, input, select, textarea, [tabindex]):focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Divider helpers (row dividers, never one sided card borders) */
+.divider-h { height: 1px; width: 100%; background: var(--border); }
+.divider-band { height: 1px; width: 100%; background: color-mix(in srgb, var(--band-foreground) 14%, transparent); }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { transform: none; transition: opacity 300ms var(--ease-base); }
+  .tagline-word { color: var(--foreground); transition: none; }
+  .menu-panel {
+    transform: none;
+    transition: opacity 300ms var(--ease-base), visibility 0s linear 300ms;
+  }
+  .menu-panel-open {
+    transform: none;
+    transition: opacity 300ms var(--ease-base), visibility 0s;
+  }
+  .menu-item { transform: none; transition: opacity 300ms var(--ease-base); }
+  .btn,
+  .nav-link,
+  .lift-link {
+    transition: background-color 300ms var(--ease-base), color 300ms var(--ease-base);
+  }
+  .btn:hover,
+  .nav-link:hover,
+  .lift-link:hover { transform: none; }
+  .burger-line { transition: none; }
+  .nav-link::after { transition: none; }
+  main,
+  .nav-pill,
+  .rise-in,
+  .fade-in,
+  [data-slot="accordion-content"] { animation: none; }
+  html { scroll-behavior: auto; }
+}
+
+html { scroll-behavior: smooth; }
+
+/* Thin scrollbar for long lists */
+.scroll-slim::-webkit-scrollbar { width: 6px; }
+.scroll-slim::-webkit-scrollbar-thumb { background: var(--border); border-radius: 9999px; }
